@@ -100,7 +100,7 @@
 						</form>
 					</div>
 				</div>
-				<div style="display:none;" id="repuestos" class="col-12">
+				<div id="repuestos" class="col-12">
 					<div style= "vertical-align:top;" class="col-3">
 						<h3 style="text-align:left; font-weight:bold;">Repuestos:</h3>
 					</div>
