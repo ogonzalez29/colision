@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>Cotización Colisión Exprés</title>
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/view1.css">
 	</head>
 	<body>
 		<div class="grid">
@@ -11,7 +11,7 @@
 				<div class="col-12">
 					<img src="img/logo.png" alt="logo servitalleres">
 					<div style="float:right; padding-right:5px;" class="col-5">
-						<div style="float:left;" class="col-7">
+						<div style="float:left;" class="col-8">
 							<h2>Cotización:</h2>	
 						</div>
 						<div style="float:right; text-align:center;" class="col-7">
@@ -62,13 +62,13 @@
 					</div>
 				</div>
 				<div style="text-align:center;" class="col-12">
-					<div class="col-1_4">
+					<div class="col-1_2">
 						<h3 style="font-weight:bold;">Vehículo:</h3>
 					</div>
 					<div class="col-4">
 						<h3 style="border-bottom:1px solid black;">Renault Clio</h3>
 					</div>
-					<div class="col-1_2">
+					<div class="col-07">
 						<h3 style="font-weight:bold;">Placa:</h3>
 					</div>
 					<div class="col-1_2">
@@ -79,6 +79,12 @@
 					</div>
 					<div class="col-07">
 						<h3 style="border-bottom:1px solid black;">2008</h3>
+					</div>
+					<div class="col-1_4">
+						<h3 style="font-weight:bold;">Kilometraje:</h3>
+					</div>
+					<div class="col-07">
+						<h3 style="border-bottom:1px solid black;">125000</h3>
 					</div>
 				</div>
 				<div class="col-12">
