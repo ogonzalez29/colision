@@ -15,6 +15,7 @@ global $licenseErr;
 global $matrix1Err;
 global $comment1Err;
 global $comment2Err;
+global $comment3Err;
 global $priceErr;
 global $timeErr;
 global $validityTimeErr;
@@ -35,12 +36,13 @@ $errors = array('$dateErr' => "",
                 '$matrix1Err' => "",
                 '$comment1Err' =>"",
                 '$comment2Err' =>"",
+                '$comment3Err' =>"",
                 '$priceErr' =>"",
                 '$timeErr' =>"",
                 '$validityTimeErr' =>"");
 
 // $orderErr = $nameErr = $last_nameErr = $emailErr = $genderErr = $websiteErr = "";
-$month = $day = $year = $firstname = $lastname = $phone = $email = $make = $model = $license = $mileage =  $firstname1 = $lastname1 =  $comment1 = $comment2 = $price = $time = $validityTime = "";
+$month = $day = $year = $firstname = $lastname = $phone = $email = $make = $model = $license = $mileage =  $firstname1 = $lastname1 =  $comment1 = $comment2 = $comment3 = $price = $time = $validityTime = "";
 
 //search input text field and error in search.php file
 $search ="";
@@ -114,12 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   array_push($errors, $phoneErr);
 
   if (empty($_POST["email"])) {
-    $emailErr = "Email requerido";
+    $emailErr = "* Email requerido";
   } else {
     $email = test_input($_POST["email"]);
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Formato de email incorrecto"; 
+      $emailErr = "* Formato de email incorrecto"; 
     }
   }
 
@@ -170,25 +172,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (!preg_match("/^[0-9 ]*$/",$mileage)) {
         $mileageErr = "* Solo números sin espacios permitidos"; 
       }
-      // check if mileage value already exists in database for the same license to avoid duplicate
-      else {
-        require_once('duplicate1_query.php');
-      }
     }
 
     array_push($errors, $mileageErr);
 
-  //Check if all items have an option selected (change number as needed)
   if (!isset($_POST['matrix_1'])) {
-    $matrix1Err = "* Se debe seleccionar una opción por ítem";
-  } elseif (count($_POST['matrix_1'])<17){
-    $matrix1Err = "* Se debe seleccionar una opción por ítem";
+    $matrix1Err = "* Se debe seleccionar una opción";
   }
 
   array_push($errors, $matrix1Err);
 
   if (empty($_POST["comment1"])) {
-      $comment1 = "";
+      $comment1Err = "* Debe ingresar los trabajos a realizar";
     } else {
       $comment1 = test_input($_POST["comment1"]);
       // check if comment1 only contains numbers, letters and whitespaces
@@ -199,8 +194,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      array_push($errors, $comment1Err);
 
-  if (empty($_POST["comment2"])) {
-      $comment2 = "";
+  if (@$_POST['matrix_1'] == 1) {
+    if (empty($_POST["comment2"])){
+      $comment2Err = "* Debe especificar los repuestos asociados";
     } else {
       $comment2 = test_input($_POST["comment2"]);
       // check if comment1 only contains numbers, letters and whitespaces
@@ -208,6 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comment2Err = "* Solo números, letras y espacios permitidos"; 
       }
     }
+  }
 
     array_push($errors, $comment2Err);
 
@@ -259,6 +256,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   array_push($errors, $validityTimeErr);
+
+    if (empty($_POST["comment3"])) {
+      $comment3Err = "* Debe ingresar los detalles de la cotización";
+    } else {
+      $comment3 = test_input($_POST["comment3"]);
+      // check if comment1 only contains numbers, letters and whitespaces
+      if (!preg_match("/^[0-9a-zA-Záéíóúñ,.;:$()+\- ]*$/",$comment3)) {
+        $comment3Err = "* Solo números, letras y espacios permitidos"; 
+      }
+    }
+
+    array_push($errors, $comment3Err);
 }
 
 function test_input($data) {
