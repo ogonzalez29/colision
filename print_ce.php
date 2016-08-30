@@ -124,7 +124,7 @@ include ('info.php');
 				</div>
 				<div class="col-12">
 					<div style= "vertical-align:top; height: 68px;" class="col-3">
-						<h3 style="text-align:left; font-weight:bold; margin: 1.5em 0;">Piezas a intervenir:</h3>
+						<h3 style="text-align:left; font-weight:bold; margin: 1.5em 0;">Trabajos a realizar:</h3>
 					</div>
 					<div style="text-align:justify; height:68px; line-height:68px; border-bottom:1px solid black;" class="col-9">
 						<div style="padding-top: 0;" class="col-12">
