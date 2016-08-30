@@ -206,7 +206,7 @@ require_once 'save_data.php'; //Save input to database
 		</span> 
 		</li>
 		<li id="li_8" >
-			<label class="description" for="element_4">Teléfono </label>
+			<label class="description" for="element_8">Teléfono </label>
 			<div>
 				<input id="element_8" name="phone" class="element text medium" type="text" maxlength="255" value="<?php echo $phone;?>"/> 
 				<span><?php echo $phoneErr;?></span>
