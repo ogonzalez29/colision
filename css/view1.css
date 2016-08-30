@@ -9,8 +9,9 @@
 
 html,
 body {
-    width:210mm;
-    margin: 0 auto;
+    width:250mm;
+    margin: 10px auto;
+
 }
 
 .header {
@@ -105,18 +106,20 @@ body {
 }
 
 .footer {
-	border-top: 1px solid #d3d3d3;
-	border-bottom: 1px solid #d3d3d3;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .row,
+.row-1,
 .row-1 .col-12,
 .row-2 .col-12 {
-	padding-top: 5px;
+	padding-top: 10px;
 }
 
 .row-2 {
-	padding-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 span {
