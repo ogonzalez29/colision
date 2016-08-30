@@ -66,8 +66,8 @@ require 'data_check.php'; //Input field data check file
 
 						if ($foundnum1 == 0) {
 							echo "<li id=li_2>
-							<div>
-								<span style=text-align:center>* No existen registros para ese criterio de búsqueda</span>
+							<div class=error>
+								<p>* No existen registros para ese criterio de búsqueda</p>
 							</div>"; 
 						}
 						else {
