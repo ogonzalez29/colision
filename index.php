@@ -269,7 +269,7 @@ require_once 'save_data.php'; //Save input to database
 		<div>
 			<textarea onKeyPress=check_length_9(this.form); onKeyDown=check_length_9(this.form); id="element_21" name="comment1" class="element textarea medium"><?php echo $comment1;?></textarea> 
 			<br>
-			<input size=1 value=170 name=text_num_9 style="float:right; text-align:right;">
+			<input size=1 value=315 name=text_num_9 style="float:right; text-align:right;">
 			<span><?php echo $comment1Err;?></span>
 		</div> 
 		</li>

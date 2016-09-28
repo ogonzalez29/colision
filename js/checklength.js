@@ -1,7 +1,7 @@
 //Función para el campo de piezas a intervenir
 function check_length_9(testform)
 {
-maxLen = 170; // max number of characters allowed
+maxLen = 315; // max number of characters allowed
 if (testform.comment1.value.length >= maxLen) {
 // Alert message if maximum limit is reached. 
 // If required Alert can be removed. 
