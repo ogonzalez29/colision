@@ -228,7 +228,7 @@ require_once 'save_data.php'; //Save input to database
 			$sql="select * from category "; // Query to collect data from table 
 
 			foreach ($dbo->query($sql) as $row) {
-			echo "<option value=$row[category]>$row[category]</option>";
+			echo '<option value="'.htmlspecialchars($row['category']).'">'.htmlspecialchars($row['category']).'</option>';
 			}	
 			?>
 			</select>

@@ -2,10 +2,10 @@
 @$cat_id=$_GET['category'];
 //$make_id=2;
 /// Preventing injection attack //// 
-if(!ctype_alnum($cat_id)){
-echo "Data Error";
-exit;
- }
+// if(!ctype_alnum($cat_id)){
+// echo "Data Error";
+// exit;
+//  }
 /// end of checking injection attack ////
 require "connect_db.php";
 
