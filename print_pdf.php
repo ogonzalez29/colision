@@ -1,6 +1,8 @@
 <?php
 //Verify if session started, else redirect to login.php
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+} 
 if (!$_SESSION['logged']) {
 	header("Location: login.php");
 	exit;
@@ -19,9 +21,10 @@ use mikehaertl\wkhtmlto\Pdf;
 // You can pass a filename, a HTML string, an URL or an options array to the constructor
 $pdf = new Pdf(array(
 	'page-size' => 'Letter',
-	'no-outline',
-	'disable-smart-shrinking',
-	'user-style-sheet' => 'localhost/colision/css/pdf.css',
+	'margin-top'    => 10,
+    'margin-right'  => 0,
+    'margin-bottom' => 10,
+    'margin-left'   => 0,
 	));
 
 $pdf->addPage('localhost/colision/printce.html');
@@ -29,7 +32,7 @@ $pdf->addPage('localhost/colision/printce.html');
 // $pdf->addPage('/home/servital/public_html/control-calidad/printcc.html');
 
 // On some systems you may have to set the path to the wkhtmltopdf executable
-$pdf->binary = 'C:\Archivos de programa\wkhtmltopdf\bin\wkhtmltopdf.exe';
+$pdf->binary = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe';
 //webserver
 // $pdf->binary = '/home/servital/wkhtmltox/bin/wkhtmltopdf';
 
@@ -62,5 +65,7 @@ while ($row1 = mysql_fetch_array($result1)) {
 	if (!$pdf->send($doc2.'_'.$license.'_'.$day.$month.$year.'.pdf')) {
 	    echo $pdf->getError();
 	}
+
+	$pdf->saveAs('C:/Temp/'.$doc2.'_'.$license.'_'.$day.$month.$year.'.pdf');
 }
 ?>

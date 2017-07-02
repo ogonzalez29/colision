@@ -1,6 +1,8 @@
 <?php
 //Verify if session started, else redirect to login.php
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+} 
 if (!$_SESSION['logged']) {
 	header("Location: login.php");
 	exit;
@@ -100,7 +102,7 @@ require 'data_check.php'; //Input field data check file
 							$date = $runrows1['day']. '/'.$runrows1['month']. '/'.$runrows1['year'];
 			            	
 			            	echo "<tr align='center'>
-					            	<form method=post action=print_ce.php target=_blank>
+					            	<form method=post action=print_doc.php>
 						            	<th width='60' align='center'>
 						            		<input type=submit name=doc1 value=$id>
 						            	</th>

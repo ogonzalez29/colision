@@ -77,9 +77,9 @@ $errors_array = array_filter($errors);
 										 observations='$comment3'
 										 ")
  		or die(mysql_error());
+ 		unset($_SESSION['cons1']);
 		
-		header("location: print_ce.php");
+		header("location: print.php");
 	}
 }
-// var_dump($errors_array);
 ?>

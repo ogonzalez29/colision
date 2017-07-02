@@ -1,7 +1,9 @@
 <?php
 //Verify if session started, else redirect to login.php
 ob_start();
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+} 
 if (!$_SESSION['logged']) {
 	header("Location: login.php");
 	exit;
@@ -196,12 +198,17 @@ include ('info.php');
 		?>
 		<div style="margin: 10px 10px;">
 		<?php $doc2 = $doc1;?>
-			<form method="post" action="print_pdf.php">
+			<form name="fpdf" id= "fpdf" method="post" action="print_pdf.php">
 				<th width='60' align='center'>
 					<input type="submit" name="pdf" value="Imprimir en PDF">
 					<input type="hidden" name="doc2" value="<?php echo $doc2;?>" >
 				</th>
 			</form>
 		</div>
+		<script type="text/javascript">
+				$(document).ready(function(){
+     			$("#fpdf").submit();
+			});
+	</script>
 	</body>
 </html>
